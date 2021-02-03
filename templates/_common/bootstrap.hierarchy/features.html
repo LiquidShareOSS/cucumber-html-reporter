@@ -23,7 +23,6 @@
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <div class="panel-title-inner">
-                                <span class="share-set-feature glyphicon glyphicon-share" aria-hidden="true" data-hash="<%= set.idHierarchyHash %>"></span>
                                 <a data-toggle="collapse" href="#collapseSet<%= suite.name.sanitized %><%= suid %>">
                                     <i class="glyphicon glyphicon-chevron-right"></i>
                                     <i class="glyphicon glyphicon-chevron-down"></i>
@@ -43,6 +42,7 @@
                                                                         title="<%= set.featuresOrSets.ambiguous %> Ambiguous Items"><%= set.featuresOrSets.ambiguous %></span><% } %>
                                     </span>
                                 </a>
+                                <span class="share-set-feature glyphicon glyphicon-share" aria-hidden="true" data-hash="<%= set.idHierarchyHash %>"></span>
                             </div>
                         </h4>
                     </div>
@@ -80,7 +80,6 @@
                         </div>
                         <% } %>
                         <div class="panel-title-inner">
-                            <span class="share-set-feature glyphicon glyphicon-share" aria-hidden="true" data-hash="<%= feature.idHierarchyHash %>"></span>
                             <a data-toggle="collapse" href="#collapseFeature<%= suite.name.sanitized %><%= uid %>">
                                 <i class="glyphicon glyphicon-chevron-right"></i>
                                 <i class="glyphicon glyphicon-chevron-down"></i>
@@ -100,6 +99,7 @@
                                                                     title="<%= feature.scenarios.ambiguous %> Ambiguous Scenarios"><%= feature.scenarios.ambiguous %></span><% } %>
                                 </span>
                             </a>
+                            <span class="share-set-feature glyphicon glyphicon-share" aria-hidden="true" data-hash="<%= feature.idHierarchyHash %>"></span>
                         </div>
                     </h4>
                 </div>
