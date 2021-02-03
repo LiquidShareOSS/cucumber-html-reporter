@@ -32,6 +32,6 @@ module.exports = function assertHtmlReports(outputDirectory, checkContent) {
 
     if (checkContent) {
         const bootstrapContent = fs.readFileSync(bootstrapHtmlFile, { encoding: 'utf-8' }).replace(/\n/g, '').replace(/\r/g, '');
-        bootstrapContent.should.match(/class\=\"panel-title\"(.*)\<b\>Set\:\<\/b\>Parentset(.*)class\=\"panel-title\"(.*)\<b\>Set\:\<\/b\>Innerset(.*)class\=\"panel-title\"(.*)\<b\>Feature\:\<\/b\>Feature in set/);
+        bootstrapContent.should.match(/class\=\"panel-title\"(.*)\<b\>Set\:\<\/b\>Parent set(.*)data-hash\=\"parentset\"(.*)class\=\"panel-title\"(.*)\<b\>Set\:\<\/b\>Inner set(.*)data-hash\=\"parentset\;innerset\"(.*)class\=\"panel-title\"(.*)\<b\>Feature\:\<\/b\>Feature in set(.*)data-hash\=\"parentset;innerset;feature-in-set1\"/);
     }
 };
