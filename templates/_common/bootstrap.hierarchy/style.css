@@ -41,11 +41,6 @@
     padding-bottom: 3px;
 }
 
-.container,
-.container-fluid {
-    margin-bottom: 35px;
-}
-
 .container .row .panel-body .col-lg-12,
 .container .row .panel-body .col-md-12,
 .container-fluid .row .panel-body .col-lg-12,
