@@ -312,7 +312,7 @@
 
                                     <% if (step.text) { %>
                                     <a href="#info<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
-                                       data-toggle="modal" data-target="#info-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" class="show-info toggle">Show Info +</a>
+                                       data-toggle="modal" data-target="#info-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" class="show-info toggle">Show Info</a>
 
                                     <div class="modal fade" id="info-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" tabindex="-1" role="dialog"
                                         aria-labelledby="stacktraceModalLabel" aria-hidden="true">
@@ -354,7 +354,8 @@
                                             style="cursor: pointer"
                                             data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>">
 
-                                            <img class="screenshot" style="height:100%;width:100%;display:block;"
+                                            <!-- will switch to img on user interaction for lazy loading -->
+                                            <screenshot-placeholder class="screenshot" style="height:100%;width:100%;display:block;"
                                             id="ss-image-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" src="<%= step.image %>"/>
                                     </div>
                                     <div class="screenshot collapse"
@@ -379,7 +380,9 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <img class="screenshot" style="height:100%;width:100%;"
+
+                                                    <!-- will switch to img on user interaction for lazy loading -->
+                                                    <screenshot-placeholder class="screenshot" style="height:100%;width:100%;"
                                                         id="my-ss-images" src="<%= step.image %>"/>
                                                 </div>
 
