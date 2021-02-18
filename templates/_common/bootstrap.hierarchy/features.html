@@ -269,18 +269,18 @@
                                         <% } %>
 
                                         <% if (step.result.error_message) { %>
-                                        <a href="#error<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
+                                        <a href="#error<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
                                         data-toggle="collapse" class="toggle">Show Error +</a>
-                                        <div id="error<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
+                                        <div id="error<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
                                             class="collapse">
                                             <pre class="info show-modal"
                                                 data-toggle="modal"
                                                 style="cursor: pointer"
-                                                data-target="#error-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>">
+                                                data-target="#error-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>">
                                                 <br> <%= step.result.error_message.replace(/</g, '(').replace(/>/g, ')') %></pre>
                                         </div>
 
-                                    <div class="modal fade" id="error-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="error-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" tabindex="-1" role="dialog"
                                         aria-labelledby="stacktraceModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -311,10 +311,10 @@
                                         <% } %>
 
                                     <% if (step.text) { %>
-                                    <a href="#info<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
-                                       data-toggle="modal" data-target="#info-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" class="show-info toggle">Show Info +</a>
+                                    <a href="#info<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
+                                       data-toggle="modal" data-target="#info-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" class="show-info toggle">Show Info</a>
 
-                                    <div class="modal fade" id="info-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="info-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" tabindex="-1" role="dialog"
                                         aria-labelledby="stacktraceModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -345,27 +345,28 @@
                                     <% } %>
 
                                         <% if (step.image) { %>
-                                    <a href="#ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
+                                    <a href="#ss<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
                                         data-toggle="collapse" class="toggle">Screenshot +</a>
-                                    <div id="ss<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>"
+                                    <div id="ss<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
                                         class="screenshot collapse">
                                         <pre class="info show-modal"
                                             data-toggle="modal"
                                             style="cursor: pointer"
-                                            data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>">
+                                            data-target="#ss-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>">
 
-                                            <img class="screenshot" style="height:100%;width:100%;display:block;"
-                                            id="ss-image-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" src="<%= step.image %>"/>
+                                            <!-- will switch to img on user interaction for lazy loading -->
+                                            <screenshot-placeholder class="screenshot" style="height:100%;width:100%;display:block;"
+                                            id="ss-image-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" src="<%= step.image %>"/>
                                     </div>
                                     <div class="screenshot collapse"
                                     style="cursor: pointer"
 
                                     data-toggle="modal"
-                                    data-target="#ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>">
+                                    data-target="#ss-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>">
 
                                     </div>
 
-                                    <div class="modal fade" id="ss-modal-<%= featureIndex %>_<%= scenarioIndex %><%= stepIndex %>" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="ss-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" tabindex="-1" role="dialog"
                                         aria-labelledby="stacktraceModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
@@ -379,7 +380,9 @@
                                                 </div>
 
                                                 <div class="modal-body">
-                                                    <img class="screenshot" style="height:100%;width:100%;"
+
+                                                    <!-- will switch to img on user interaction for lazy loading -->
+                                                    <screenshot-placeholder class="screenshot" style="height:100%;width:100%;"
                                                         id="my-ss-images" src="<%= step.image %>"/>
                                                 </div>
 
@@ -450,7 +453,7 @@
             const target = evt.currentTarget;
 
             try {
-                copyTextToClipboard(document.location.href + '#' + target.getAttribute('data-hash'));
+                copyTextToClipboard(document.location.href.split("#")[0] + '#' + target.getAttribute('data-hash'));
             } catch (e) {
                 $('.clipboard-success').modal({ show: true });
             }

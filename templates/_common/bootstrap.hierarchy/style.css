@@ -41,11 +41,6 @@
     padding-bottom: 3px;
 }
 
-.container,
-.container-fluid {
-    margin-bottom: 35px;
-}
-
 .container .row .panel-body .col-lg-12,
 .container .row .panel-body .col-md-12,
 .container-fluid .row .panel-body .col-lg-12,
@@ -118,6 +113,10 @@
     padding-right: 10px;
 }
 
+.panel-title:hover {
+    background-color: #ddd;
+}
+
 .panel-heading .label-container {
     position: absolute;
     top: 2px;
@@ -187,7 +186,7 @@ div.chart div div svg rect {
 }
 
 .screenshot {
-    padding: 2% 0 2% 0;
+    padding: 0;
 }
 
 .description {
@@ -236,7 +235,6 @@ pre {
     display: block;
     padding: 10px;
     margin-top: 1em;
-    margin-right: 3em;
     font-size: 13px;
     line-height: 1.42857143;
     word-break: break-all;
@@ -304,4 +302,8 @@ pre {
 
 .feature-failed{
     display: block;
+}
+
+.modal-dialog {
+    width: 90%;
 }
