@@ -453,7 +453,7 @@
             const target = evt.currentTarget;
 
             try {
-                copyTextToClipboard(document.location.href + '#' + target.getAttribute('data-hash'));
+                copyTextToClipboard(document.location.href.split("#")[0] + '#' + target.getAttribute('data-hash'));
             } catch (e) {
                 $('.clipboard-success').modal({ show: true });
             }
