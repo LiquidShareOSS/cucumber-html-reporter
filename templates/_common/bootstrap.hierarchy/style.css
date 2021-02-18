@@ -303,3 +303,7 @@ pre {
 .feature-failed{
     display: block;
 }
+
+.modal-dialog {
+    width: 90%;
+}
