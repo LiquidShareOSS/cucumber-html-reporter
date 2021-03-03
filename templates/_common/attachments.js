@@ -29,11 +29,9 @@ $('a.screenshot-toggle').on('click', function (e) {
 
         element.siblings().css('color', '');
         element.css('color', selectionColor);
-        $(this.parentElement).find('img').collapse('show');
         $(this.parentElement).find('.attachment-container').collapse('hide');
         $(this.parentElement).find('.attachment-view').attr('data', '');
     } else {
-        $(this.parentElement).find('img').collapse('hide');
         element.css('color', '');
     }
 });
