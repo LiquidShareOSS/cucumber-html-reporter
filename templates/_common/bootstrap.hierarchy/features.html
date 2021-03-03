@@ -309,44 +309,23 @@
 
 
                                         <% } %>
+                                    <% if (step.image) { %>
+                                        <a href="#ss<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
+                                            data-toggle="collapse" class="screenshot-toggle collapsed">Screenshot</a>
+                                    <% } %>
+                                    <% if (step.attachments) { %>
+                                        <% for (let attachment of step.attachments) { %>
+                                            |&nbsp;<a class="attachment-link" href="<%= attachment.path %>"><%= attachment.name %></a>
+                                        <% } %>
 
-                                    <% if (step.text) { %>
-                                    <a href="#info<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
-                                       data-toggle="modal" data-target="#info-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" class="show-info toggle">Show Info</a>
-
-                                    <div class="modal fade" id="info-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" tabindex="-1" role="dialog"
-                                        aria-labelledby="stacktraceModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close"><span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h4 class="modal-title" id="info-modal-title">
-                                                        Info
-                                                    </h4>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <h5>
-                                                        <pre><%= step.text %></pre>
-                                                    </h5>
-                                                </div>
-
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">
-                                                        Close
-                                                    </button>
-                                                </div>
-                                            </div>
+                                        <div class="attachment-container collapse">
+                                            <pre class="info">
+                                            <object type="text/html" class="attachment-view" style="height:50vh;width:100%;display:block;"></object>
+                                            <!-- <div class="attachment-view" style="height:100%;width:100%;display:block;"></div> -->
                                         </div>
-                                    </div>
-
-
                                     <% } %>
 
-                                        <% if (step.image) { %>
-                                    <a href="#ss<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
-                                        data-toggle="collapse" class="toggle">Screenshot +</a>
+                                    <% if (step.image) { %>
                                     <div id="ss<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>"
                                         class="screenshot collapse">
                                         <pre class="info show-modal"
@@ -354,8 +333,8 @@
                                             style="cursor: pointer"
                                             data-target="#ss-modal-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>">
 
-                                            <!-- will switch to img on user interaction for lazy loading -->
-                                            <screenshot-placeholder class="screenshot" style="height:100%;width:100%;display:block;"
+                                        <!-- will switch to img on user interaction for lazy loading -->
+                                        <screenshot-placeholder class="screenshot" style="height:100%;width:100%;display:block;"
                                             id="ss-image-<%= uid %>_<%= featureIndex %>_<%= scenarioIndex %>_<%= stepIndex %>" src="<%= step.image %>"/>
                                     </div>
                                     <div class="screenshot collapse"
