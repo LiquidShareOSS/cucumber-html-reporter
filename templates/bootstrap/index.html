@@ -34,6 +34,12 @@
         <div class="chart col-lg-4 col-md-4" id="piechart_steps"></div>
       </div>
 
+			<% if (retryReport) { %>
+				<p>
+					<%= retryReport %>
+				</p>
+			<% } %>
+
       <% if (suite.metadata) { %>
       <div class="panel panel-default">
         <div class="panel-heading">
@@ -74,7 +80,7 @@
         <div class="footer-container">
           <a  target="_blank" href="">
             <div class="text-muted footer-link">
-              
+
             </div>
              </a>
         </div>
