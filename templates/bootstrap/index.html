@@ -28,17 +28,17 @@
 
       <div class="generated-on"><%= suite.time %></div>
 
+      <% if (retryReport) { %>
+        <p class="retrial-report">
+          <%= retryReport %>
+        </p>
+      <% } %>
+
       <div class="row">
         <div class="chart col-lg-4 col-md-4" id="piechart_features"></div>
         <div class="chart col-lg-4 col-md-4" id="piechart_scenarios"></div>
         <div class="chart col-lg-4 col-md-4" id="piechart_steps"></div>
       </div>
-
-			<% if (retryReport) { %>
-				<p>
-					<%= retryReport %>
-				</p>
-			<% } %>
 
       <% if (suite.metadata) { %>
       <div class="panel panel-default">
