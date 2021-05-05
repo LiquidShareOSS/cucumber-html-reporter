@@ -109,6 +109,13 @@
     padding-bottom: 10px;
 }
 
+.retrial-report {
+    padding: 5px;
+    border-radius: 5px;
+    background: #E98B39;
+    color: white;
+}
+
 .panel-title b {
     padding-right: 10px;
 }

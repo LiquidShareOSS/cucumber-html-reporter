@@ -28,6 +28,12 @@
 
       <div class="generated-on"><%= suite.time %></div>
 
+      <% if (retryReport) { %>
+        <p class="retrial-report">
+          <%= retryReport %>
+        </p>
+      <% } %>
+
       <div class="row">
         <div class="chart col-lg-4 col-md-4" id="piechart_features"></div>
         <div class="chart col-lg-4 col-md-4" id="piechart_scenarios"></div>
@@ -74,7 +80,7 @@
         <div class="footer-container">
           <a  target="_blank" href="">
             <div class="text-muted footer-link">
-              
+
             </div>
              </a>
         </div>
